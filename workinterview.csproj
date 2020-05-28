@@ -74,6 +74,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\infoCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,8 +86,24 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Interfaces\IVenderBageRepository.cs" />
+    <Compile Include="Interfaces\IVenderRepository.cs" />
+    <Compile Include="Model\ApiResponseRoot.cs" />
+    <Compile Include="Model\Badge.cs" />
+    <Compile Include="Model\CuisinesArray.cs" />
+    <Compile Include="Model\Data.cs" />
+    <Compile Include="Model\FinalResult.cs" />
+    <Compile Include="Model\ResponseInfo.cs" />
+    <Compile Include="Model\Rootclass.cs" />
+    <Compile Include="Model\Schedule.cs" />
+    <Compile Include="Model\UserImage.cs" />
     <Compile Include="ViewModel\SortingParameres.cs" />
     <Compile Include="ViewModel\ApiHandler.cs" />
+    <Compile Include="ViewModel\VenderBageRepository.cs" />
+    <Compile Include="ViewModel\VenderRepository.cs" />
+    <Compile Include="View\infoCard.xaml.cs">
+      <DependentUpon>infoCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -122,6 +142,8 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="static\image\search.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

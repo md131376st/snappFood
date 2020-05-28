@@ -8,6 +8,7 @@ namespace workinterview.Model
 
     public partial class VenderBage
     {
+        public VenderBage(){}
         public int Id { get; set; }
 
         public int? IdVender { get; set; }
@@ -24,6 +25,14 @@ namespace workinterview.Model
         [StringLength(255)]
         public string white_image { get; set; }
 
+        public VenderBage(int? idVender, Badge badge)
+        {
+            this.IdVender = idVender;
+            this.title = badge.title;
+            this.description = badge.description;
+            this.image = badge.image;
+            this.white_image = badge.white_image;
+        }
         public virtual Vender Vender { get; set; }
     }
 }

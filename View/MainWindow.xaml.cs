@@ -21,17 +21,38 @@ namespace workinterview
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ApiHandler apihandler;
         public MainWindow()
         {
             InitializeComponent();
-            ApiHandler apihandler = new ApiHandler();
-            
+            apihandler = new ApiHandler();
+            MainGrid.ItemsSource = apihandler.VenderLst;
 
         }
 
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            search.Text = "";
+            Button btn= e.Source as Button;
+            switch (btn.Name)
+            {
+                case "max_rate":
+                    apihandler.CallApi(SortingParameres.max_rate);
+                    break;
+                case "least_expensive":
+                    apihandler.CallApi(SortingParameres.least_expensive);
+                    break;
+                case "top_performance":
+                    apihandler.CallApi(SortingParameres.top_performance);
+                    break;
+                case "most_expensive":
+                    apihandler.CallApi(SortingParameres.most_expensive);
+                    break;
+                default:
+                    apihandler.CallApi(SortingParameres.defult);
+                    break;
+            }
+
+            MainGrid.Items.Refresh();
         }
     }
 }

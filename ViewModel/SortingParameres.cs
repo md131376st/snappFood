@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace workinterview.ViewModel
 {
-    enum SortingParameres
+    public enum SortingParameres
     {
           max_rate,
           least_expensive,
